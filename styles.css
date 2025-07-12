@@ -1,0 +1,61 @@
+:root {
+  --primary-color: #c8102e;         /* Rojo del logo */
+  --secondary-color: #1a1f57;       /* Azul del texto */
+  --background-color: #fefefe;
+  --text-color: #222;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  text-align: center;
+  max-width: 600px;
+  padding: 2rem;
+}
+
+.logo {
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.contact a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.socials {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.socials img {
+  width: 32px;
+  height: 32px;
+  filter: invert(12%) sepia(28%) saturate(746%) hue-rotate(194deg) brightness(92%) contrast(96%);
+  transition: transform 0.2s ease;
+}
+
+.socials img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
