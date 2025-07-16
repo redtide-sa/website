@@ -1,8 +1,12 @@
 :root {
-  --primary-color: #c8102e;         /* Rojo del logo */
-  --secondary-color: #1a1f57;       /* Azul del texto */
+  --primary-color: #c8102e;         /* Red from logo */
+  --secondary-color: #1a1f57;       /* Navy blue from logo */
   --background-color: #fefefe;
   --text-color: #222;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -19,20 +23,20 @@ body {
 
 .container {
   text-align: center;
-  max-width: 600px;
-  padding: 2rem;
+  padding: 1.5rem;
+  width: 100%;
 }
 
 .logo {
-  max-width: 300px;
+  max-width: 100%;
   height: auto;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .description {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
 }
 
 .contact a {
@@ -45,12 +49,12 @@ body {
   margin-top: 1rem;
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .socials img {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   filter: invert(12%) sepia(28%) saturate(746%) hue-rotate(194deg) brightness(92%) contrast(96%);
   transition: transform 0.2s ease;
 }
@@ -58,4 +62,21 @@ body {
 .socials img:hover {
   transform: scale(1.1);
   filter: brightness(1.2);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .container {
+    max-width: 600px;
+    padding: 2rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+  }
+
+  .socials img {
+    width: 32px;
+    height: 32px;
+  }
 }
