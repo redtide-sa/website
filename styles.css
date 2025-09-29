@@ -14,21 +14,23 @@
   box-sizing: border-box;
 }
 
-html, body {
+html {
   height: 100%;
-  overflow: hidden;
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
   color: #333;
   line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .hero-section {
   position: relative;
-  height: 100vh;
-  background-image: url('DSC06877.jpg');
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-image: url('DSC06877-web.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -65,8 +67,9 @@ body {
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 2rem;
+  padding: 1.5rem;
   max-width: 900px;
+  width: 100%;
   animation: fadeInUp 1s ease-out;
 }
 
@@ -83,9 +86,9 @@ body {
 
 .animated-logo {
   max-width: 280px;
-  width: 100%;
+  width: 80%;
   height: auto;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
   animation: pulse 2s infinite;
 }
@@ -101,13 +104,14 @@ body {
 
 .tagline {
   font-family: 'Bebas Neue', cursive;
-  font-size: 3rem;
+  font-size: clamp(2rem, 7vw, 3rem);
   color: var(--light-text);
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   margin-bottom: 0.3rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   animation: glow 2s ease-in-out infinite alternate;
+  line-height: 1.1;
 }
 
 @keyframes glow {
@@ -120,10 +124,10 @@ body {
 }
 
 .sub-tagline {
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   color: var(--light-text);
   font-weight: 300;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   opacity: 0.95;
 }
@@ -132,19 +136,22 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-bottom: 1.5rem;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+  padding: 0 1rem;
 }
 
 .genre-tag {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 25px;
-  font-size: 0.95rem;
+  font-size: clamp(0.75rem, 2vw, 0.95rem);
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .genre-tag:hover {
@@ -154,27 +161,28 @@ body {
 }
 
 .description-compact {
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 2.2vw, 1rem);
   color: var(--light-text);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   line-height: 1.6;
   opacity: 0.9;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 1rem;
 }
 
 .contact-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .btn {
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
+  padding: 0.9rem 2rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   font-weight: 600;
   text-decoration: none;
   border-radius: 50px;
@@ -184,6 +192,9 @@ body {
   display: inline-block;
   position: relative;
   overflow: hidden;
+  min-width: 200px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn::before {
@@ -210,110 +221,249 @@ body {
   box-shadow: 0 4px 15px rgba(200, 16, 46, 0.4);
 }
 
-.btn-primary:hover {
-  transform: translateY(-3px);
+.btn-primary:hover, .btn-primary:active {
+  transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(200, 16, 46, 0.6);
 }
 
 .socials-hero {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.2rem;
 }
 
 .social-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 50%;
   color: white;
   transition: all 0.3s ease;
   border: 2px solid rgba(255, 255, 255, 0.2);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.social-link:hover {
+.social-link:hover, .social-link:active {
   background: white;
   color: var(--primary-color);
-  transform: translateY(-5px) scale(1.1);
+  transform: translateY(-3px) scale(1.1);
   box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
 }
 
 .social-link svg {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
 }
 
 .email-text {
   color: var(--light-text);
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 2.2vw, 1rem);
   opacity: 0.9;
   margin-top: 0.5rem;
+  word-break: break-all;
 }
 
-@media (max-width: 768px) {
-  .tagline {
-    font-size: 2.2rem;
-  }
-
-  .sub-tagline {
-    font-size: 1rem;
+/* Tablet styles */
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero-content {
+    padding: 2rem;
   }
 
   .animated-logo {
-    max-width: 220px;
+    max-width: 240px;
   }
 
   .genres-compact {
-    gap: 0.5rem;
+    gap: 0.6rem;
   }
 
-  .genre-tag {
-    font-size: 0.85rem;
-    padding: 0.4rem 0.8rem;
-  }
-
-  .btn {
-    padding: 0.9rem 2rem;
-    font-size: 1rem;
+  .social-link {
+    width: 48px;
+    height: 48px;
   }
 }
 
+/* Small mobile styles */
 @media (max-width: 480px) {
-  .tagline {
-    font-size: 1.8rem;
-    letter-spacing: 2px;
-  }
-
-  .sub-tagline {
-    font-size: 0.9rem;
+  .hero-content {
+    padding: 1rem;
   }
 
   .animated-logo {
-    max-width: 180px;
+    max-width: 200px;
+    margin-bottom: 0.8rem;
   }
 
-  .hero-content {
-    padding: 1.5rem;
+  .tagline {
+    letter-spacing: 1px;
+    margin-bottom: 0.2rem;
+  }
+
+  .sub-tagline {
+    margin-bottom: 1rem;
   }
 
   .genres-compact {
     gap: 0.4rem;
+    margin-bottom: 1rem;
   }
 
   .genre-tag {
-    font-size: 0.8rem;
-    padding: 0.35rem 0.7rem;
+    padding: 0.35rem 0.6rem;
   }
 
   .description-compact {
+    margin-bottom: 1.2rem;
+    padding: 0 0.5rem;
+  }
+
+  .btn {
+    padding: 0.8rem 1.5rem;
+    min-width: 180px;
+  }
+
+  .social-link {
+    width: 42px;
+    height: 42px;
+  }
+
+  .social-link svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .email-text {
+    font-size: 0.85rem;
+  }
+}
+
+/* Very small mobile styles */
+@media (max-width: 380px) {
+  .animated-logo {
+    max-width: 160px;
+  }
+
+  .tagline {
+    font-size: 1.6rem;
+  }
+
+  .genres-compact {
+    gap: 0.3rem;
+  }
+
+  .genre-tag {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+    min-width: 160px;
+  }
+}
+
+/* Landscape mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero-content {
+    padding: 1rem;
+  }
+
+  .animated-logo {
+    max-width: 150px;
+    margin-bottom: 0.5rem;
+  }
+
+  .tagline {
+    font-size: 1.8rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .sub-tagline {
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .genres-compact {
+    margin-bottom: 0.8rem;
+  }
+
+  .description-compact {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .btn {
+    padding: 0.7rem 1.5rem;
     font-size: 0.9rem;
   }
 
   .social-link {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* iPad Pro and large tablets */
+@media (min-width: 769px) and (max-width: 1366px) {
+  .hero-content {
+    padding: 2.5rem;
+  }
+
+  .animated-logo {
+    max-width: 320px;
+  }
+
+  .tagline {
+    font-size: 3.5rem;
+  }
+
+  .sub-tagline {
+    font-size: 1.3rem;
+  }
+
+  .genres-compact {
+    gap: 1rem;
+  }
+
+  .genre-tag {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 1.1rem 2.5rem;
+    font-size: 1.2rem;
+  }
+
+  .social-link {
+    width: 55px;
+    height: 55px;
+  }
+
+  .social-link svg {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* Fix for iOS Safari video background */
+@supports (-webkit-touch-callout: none) {
+  .hero-video {
+    position: fixed;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
